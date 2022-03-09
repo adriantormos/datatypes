@@ -2,7 +2,7 @@ from unittest import TestCase
 from src.cyclic_list import CyclicList
 
 
-class TestVector2(TestCase):
+class TestCyclicList(TestCase):
     def test_init(self):
         cl = CyclicList([1, 2, 3, 4, 5])
         self.assertEqual(type(cl), CyclicList)
