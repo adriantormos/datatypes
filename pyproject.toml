@@ -1,11 +1,15 @@
 [tool.poetry]
 name = "datatypes"
-version = "0.1.1"
-description = ""
+version = "0.1.2"
+description = "A repository with specific data types implemented in Python for the needs of personal projects."
+license = "MIT"
 authors = ["adriantormos <adriantormos98@gmail.com>"]
+readme = "README.md"
+repository = "https://https://github.com/adriantormos/datatypes"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+numpy = "^1.22.3"
 
 [tool.poetry.dev-dependencies]
 
