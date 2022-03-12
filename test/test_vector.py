@@ -3,7 +3,7 @@ from unittest import TestCase
 
 import numpy as np
 
-from src.vector import Vector2D, Vector2DCartesian, Vector2DPolar
+from types.geometry.vector import Vector2D, Vector2DCartesian, Vector2DPolar
 
 
 class TestVector2D(TestCase):

@@ -1,5 +1,5 @@
 from unittest import TestCase
-from src.cyclic_list import CyclicList
+from types.collections import CyclicList
 
 
 class TestCyclicList(TestCase):
