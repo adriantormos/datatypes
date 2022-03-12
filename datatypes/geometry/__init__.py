@@ -1,2 +1,2 @@
-from vector import *
-from point import *
+from .vector import *
+from .point import *

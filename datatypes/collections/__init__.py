@@ -1,1 +1,1 @@
-from cyclic_list import *
+from .cyclic_list import *
