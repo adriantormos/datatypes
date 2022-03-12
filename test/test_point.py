@@ -1,7 +1,7 @@
 from math import pi
 from unittest import TestCase
-from types.geometry.vector import Vector2D
-from types.geometry.point import Point2D
+from datatypes.geometry.vector import Vector2D
+from datatypes.geometry.point import Point2D
 
 
 class TestPoint2D(TestCase):

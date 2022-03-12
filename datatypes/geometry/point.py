@@ -1,8 +1,9 @@
-from typing import Union
+from __future__ import annotations
 
+from typing import Union
 import numpy as np
 
-from types.geometry import Vector2D, Vector2DPolar
+from datatypes.geometry import Vector2D, Vector2DPolar
 
 
 class Point2D:

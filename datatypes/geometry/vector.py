@@ -4,7 +4,8 @@ from math import tau, pi, sqrt
 from typing import Union
 
 import numpy as np
-from types.geometry.point import Point2D
+
+from datatypes.geometry.point import Point2D
 
 
 def normalize_t(t): return t % tau
