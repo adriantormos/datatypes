@@ -75,7 +75,7 @@ class Point2D:
         """
         if not isinstance(other, Point2D) \
                 and not isinstance(other, Vector2D):
-            raise TypeError('Point2D can only be added by a Point2D or another Vector2D.')
+            return NotImplemented
         if isinstance(other, Vector2DPolar):
             other = other.to_cartesian()
         return Point2D(x=self.x + other.x, y=self.y + other.y)
@@ -99,7 +99,7 @@ class Point2D:
         """
         if not isinstance(other, Point2D) \
                 and not isinstance(other, Vector2D):
-            raise TypeError('Point2D can only be substracted by a Point2D or another Vector2D.')
+            return NotImplemented
         if isinstance(other, Point2D):
             return Vector2D(x=self.x - other.x, y=self.y - other.y)
         if isinstance(other, Vector2DPolar):
@@ -120,7 +120,7 @@ class Point2D:
             TypeError: If `other` is not a scalar.
         """
         if not np.isreal(other):
-            raise TypeError('Point2D can only be multiplied by a scalar.')
+            return NotImplemented
         if other == 0:
             return Point2D(x=0, y=0)
         return Point2D(self.x*other, self.y*other)
@@ -143,7 +143,7 @@ class Point2D:
             ZeroDivisionError: If `other` is equal to 0.
         """
         if not np.isreal(other):
-            raise TypeError('Point2D can only be divided by a scalar.')
+            return NotImplemented
         if other == 0:
             raise ZeroDivisionError
         return Point2D(self.x/other, self.y/other)
@@ -408,28 +408,28 @@ class Vector2DCartesian(Vector2D):
         if isinstance(other, Point2D):
             return other + self
         if not isinstance(other, Vector2D):
-            raise TypeError('Vector2D can only be added by a Point2D or another Vector2D.')
+            return NotImplemented
         if isinstance(other, Vector2DPolar):
             other = other.to_cartesian()
         return Vector2DCartesian(self.x + other.x, self.y + other.y)
 
     def __sub__(self, other: Vector2D) -> Vector2D:
         if not isinstance(other, Vector2D):
-            raise TypeError('Vector2D can only be substracted by another Vector2D.')
+            return NotImplemented
         if isinstance(other, Vector2DPolar):
             other = other.to_cartesian()
         return Vector2DCartesian(self.x - other.x, self.y - other.y)
 
     def __mul__(self, other) -> Vector2DCartesian:
         if not np.isreal(other):
-            raise TypeError('Vector2D can only be multiplied by a scalar.')
+            return NotImplemented
         if other == 0:
             return Vector2D(x=0, y=0)
         return Vector2DCartesian(self.x*other, self.y*other)
 
     def __truediv__(self, other) -> Vector2DCartesian:
         if not np.isreal(other):
-            raise TypeError('Vector2D can only be divided by a scalar.')
+            return NotImplemented
         if other == 0:
             raise ZeroDivisionError
         return Vector2DCartesian(self.x/other, self.y/other)
@@ -488,14 +488,14 @@ class Vector2DPolar(Vector2D):
         if isinstance(other, Point2D):
             return other + self
         if not isinstance(other, Vector2D):
-            raise TypeError('Vector2D can only be added by a Point2D or another Vector2D.')
+            return NotImplemented
         if isinstance(other, Vector2DPolar) and self.t == other.t:
             return Vector2DPolar(self.r + other.r, self.t)
         return self.to_cartesian() + other.to_cartesian()
 
     def __sub__(self, other: Vector2D) -> Vector2D:
         if not isinstance(other, Vector2D):
-            raise TypeError('Vector2D can only be substracted by another Vector2D.')
+            return NotImplemented
         if isinstance(other, Vector2DPolar) and self.t == other.t:
             return Vector2DPolar(self.r - other.r, self.t) \
                 if self.r >= other.r \
@@ -504,14 +504,14 @@ class Vector2DPolar(Vector2D):
 
     def __mul__(self, other) -> Vector2D:
         if not np.isreal(other):
-            raise TypeError('Vector2D can only be multiplied by a scalar.')
+            return NotImplemented
         if other == 0:
             return Vector2D(x=0, y=0)
         return Vector2DPolar(self.r*other, self.t)
 
     def __truediv__(self, other) -> Vector2DPolar:
         if not np.isreal(other):
-            raise TypeError('Vector2D can only be divided by a scalar.')
+            return NotImplemented
         if other == 0:
             raise ZeroDivisionError
         return Vector2DPolar(self.r/other, self.t)
