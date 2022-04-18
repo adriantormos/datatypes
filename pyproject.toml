@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "datatypes"
-version = "0.1.2"
+version = "0.1.3"
 description = "A repository with specific data types implemented in Python for the needs of personal projects."
 license = "MIT"
 authors = ["adriantormos <adriantormos98@gmail.com>"]

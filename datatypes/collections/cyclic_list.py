@@ -90,3 +90,6 @@ class CyclicList(UserList):
             del self.data[key % len(self)]
         else:
             del self.data[key]
+
+    def __iter__(self):
+        return self.data.__iter__()
