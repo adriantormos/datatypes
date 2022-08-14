@@ -465,9 +465,12 @@ class Vector2DPolar(Vector2D):
         super().__init__()
         assert np.isreal(r)
         assert np.isreal(t)
-        assert r >= 0
-        object.__setattr__(self, 'r', r)
-        object.__setattr__(self, 't', normalize_t(t) if r != 0 else 0)
+        if r < 0:
+            object.__setattr__(self, 'r', -r)
+            object.__setattr__(self, 't', normalize_t(t+pi) if r != 0 else 0)
+        else:
+            object.__setattr__(self, 'r', r)
+            object.__setattr__(self, 't', normalize_t(t) if r != 0 else 0)
 
     def to_cartesian(self) -> Vector2DCartesian:
         return Vector2DCartesian(self.r * np.cos(self.t), self.r * np.sin(self.t))
